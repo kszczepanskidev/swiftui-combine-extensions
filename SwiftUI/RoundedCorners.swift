@@ -1,4 +1,4 @@
-struct RoundedCornesr: Shape {
+struct RoundedCorners: Shape {
 
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners

@@ -1,4 +1,4 @@
-/// `Preference Key` used for getting view height.
+/// `Preference Key` used for getting view size.
 private struct SizePreferenceKey: PreferenceKey {
     typealias Value = CGFloat
     static var defaultValue: CGFloat = .zero
@@ -7,12 +7,12 @@ private struct SizePreferenceKey: PreferenceKey {
     }
 }
 
-/// Modifier to determine view height.
-private struct HeightModifier: ViewModifier {
+/// Modifier to determine view size.
+private struct SizeModifier: ViewModifier {
 
     // MARK: Properties
 
-    @Binding var height: CGFloat
+    @Binding var size: CGSize
 
     // - SeeAlso: ViewModifier.body(content:)
     func body(content: Content) -> some View {
@@ -20,13 +20,11 @@ private struct HeightModifier: ViewModifier {
             content
                 .background(
                     GeometryReader { proxy in
-                        Color.clear.preference(key: SizePreferenceKey.self, value: proxy.size.height)
+                        Color.clear.preference(key: SizePreferenceKey.self, value: proxy.size)
                     }
                 )
         }
-        .onPreferenceChange(SizePreferenceKey.self) { value in
-            height = value
-        }
+        .onPreferenceChange(SizePreferenceKey.self) { size = $0 }
     }
 }
 
@@ -36,7 +34,7 @@ extension View {
     ///
     /// - Parameters:
     ///   - size: `Binding` to the view size.
-    func heightModifier(height: Binding<CGFloat>) -> some View {
-        modifier(HeightModifier(height: height))
+    func sizeModifier(size: Binding<CGSize>) -> some View {
+        modifier(SizeModifier(size: size))
     }
 }
