@@ -1,4 +1,4 @@
-struct RoundedCorner: Shape {
+struct RoundedCornesr: Shape {
 
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
@@ -17,6 +17,6 @@ extension View {
     ///   - radius: radius of rounded corners.
     ///   - corners: collection of corners that should be rounded.
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
+        clipShape(RoundedCorners(radius: radius, corners: corners))
     }
 }
