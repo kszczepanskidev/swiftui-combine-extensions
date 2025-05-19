@@ -50,8 +50,8 @@ var body: some View {
 
 ## `View` extensions
 
-### hidden(\_:\)
-Simplifies code for applying `.hidden()` modifier to views. Useful when it's required to hide one of views in a Stack with preserving the same layout.
+### if(\_:\, contentModifier:\)
+Allows conditional content modifications based on given condition.
 
 Before:
 ```swift
@@ -72,7 +72,7 @@ After:
 HStack {
     Button("CLICK1", action: {})
     Button("CLICK2", action: {})
-        .hidden(shouldHideButton2)
+        .if(shouldHideButton2) { $0.hidden() }
     Button("CLICK3", action: {})
 }
 ```

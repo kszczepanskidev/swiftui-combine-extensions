@@ -13,7 +13,7 @@ An important thing to note is that while they make writing code smoother, they a
 - [Rounded corners helper](/SwiftUI#roundedcorners).
 - [`View` size reader](/SwiftUI#size-reader).
 - [`View` extensions](/SwiftUI#view-extensions).
-  - [Conditional view hiding](/SwiftUI#hidden_)
+  - [Conditional view modifier](/SwiftUI#if_-contentmodifier)
   - [Inner shadow with custom params](/SwiftUI#innershadowshape-angle-color-radius-blur)
   - [View frames](/SwiftUI#view-frame)
   - [View paddings](/SwiftUI#padding)

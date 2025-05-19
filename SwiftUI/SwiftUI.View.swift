@@ -1,7 +1,15 @@
 extension View {
-    /// Hides view based on the given flag value.
-    @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
-        if shouldHide { hidden() } else { self }
+    /// Applies content modifications based on condition.
+    ///
+    /// - Parameters:
+    ///   - condition: Condition Bool value controlling if content should be modified.
+    ///   - contentModifier: Closure that applies modification to current content.
+    /// - Returns: `View` with applied modifications when condition values equals 'true'.
+    @ViewBuilder func `if`(
+        _ condition: Bool, 
+        contentModifier: (Self) -> some View
+    ) -> some View {
+        if condition { contentModifier(self) } else { self }
     }
 
     /// Apply inner shadow to the `View`.
